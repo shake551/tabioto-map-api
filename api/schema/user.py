@@ -6,6 +6,9 @@ from pydantic import BaseModel, Field
 class UserBase(BaseModel):
     name: Optional[str]
 
+    class Config:
+        orm_mode = True
+
 
 class UserRequest(UserBase):
     pass
