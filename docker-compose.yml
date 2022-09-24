@@ -1,9 +1,9 @@
 version: '3'
 services:
-  mensetsu:
+  api:
     restart: always
     build: ./tools/python
-    container_name: 'mensetsu'
+    container_name: 'api'
     working_dir: '/root/'
     depends_on:
       - mysqld
