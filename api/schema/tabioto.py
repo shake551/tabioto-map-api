@@ -30,6 +30,7 @@ class TabiotoDetailResponse(BaseModel):
     place: Place
     sound_list: List[SoundResponse]
     place_count: int
+    color: List[float]
 
 
 class TabiotoCreateRequest(BaseModel):
