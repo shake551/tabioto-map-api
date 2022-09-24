@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from api.router import tabioto
+from api.router import tabioto, user
 
 app = FastAPI()
 
@@ -10,4 +10,5 @@ async def health():
     return {"message": "ok"}
 
 
+app.include_router(user.router)
 app.include_router(tabioto.router)
