@@ -16,7 +16,7 @@ async def place_list():
     ]
 
 
-@router.post('/tabioto')
+@router.post('/tabioto', response_model=tabioto_schema.TabiotoCreateResponse)
 async def post_tabioto(body: tabioto_schema.TabiotoCreateRequest):
     return tabioto_schema.TabiotoCreateResponse(title=body.title, sound_url=body.title)
 
@@ -41,7 +41,7 @@ async def user_tabioto_list(user_id: int):
             tabioto_schema.SoundResponse(name='国歌', url='kimigayo.mp3'),
             tabioto_schema.SoundResponse(name='アルビノーニ　アダージョ', url='JS_Batch_Air.mp3'),
         ],
-        place_list=2
+        place_count=2
     )
 
 
