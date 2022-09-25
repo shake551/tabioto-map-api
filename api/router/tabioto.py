@@ -27,11 +27,10 @@ async def tabioto_detail(id: int):
     return tabioto_schema.TabiotoDetailResponse(
         place=tabioto_schema.Place(id=0, name="京都タワー", latitude=135.75937443779, longitude=34.987521642792),
         sound_list=[
-            tabioto_schema.SoundResponse(name='国歌', url='kimigayo.mp3'),
-            tabioto_schema.SoundResponse(name='アルビノーニ　アダージョ', url='JS_Batch_Air.mp3'),
+            tabioto_schema.SoundResponse(name='国歌', url='kimigayo.mp3', color=[0.4490342503266062, 0.32979157405188686, 0.22117417901766545]),
+            tabioto_schema.SoundResponse(name='アルビノーニ', url='JS_Batch_Air.mp3', color=[0.4490342503266062, 0.32979157405188686, 0.22117417901766545]),
         ],
-        place_count=2,
-        color=[0.4490342503266062, 0.32979157405188686, 0.22117417901766545]
+        place_count=6,
     )
 
 
@@ -41,16 +40,16 @@ async def user_tabioto_list(user_id: int):
         place=tabioto_schema.Place(id=0, name="京都タワー", latitude=135.75937443779, longitude=34.987521642792),
         sound_list=[
             tabioto_schema.SoundResponse(name='国歌', url='kimigayo.mp3'),
-            tabioto_schema.SoundResponse(name='アルビノーニ　アダージョ', url='JS_Batch_Air.mp3'),
+            tabioto_schema.SoundResponse(name='アルビノーニ', url='JS_Batch_Air.mp3'),
         ],
-        place_count=2,
+        place_count=6,
         color=[0.4490342503266062, 0.32979157405188686, 0.22117417901766545]
     )
 
 
 @router.get('/mp3')
 async def mp3_player():
-    return FileResponse('api/sound/D510694E-0C21-4509-B44B-8464B472E06D.m4a')
+    return FileResponse('api/sound/train.mp3')
 
 
 class MiniAPIUtil:
@@ -75,7 +74,7 @@ class MiniAPIUtil:
             'Authorization': 'Bearer ' + access_token,
         }
 
-        with open('api/sound/D510694E-0C21-4509-B44B-8464B472E06D.m4a', 'rb') as f:
+        with open('api/sound/train.mp3', 'rb') as f:
             data = f.read().replace(b'\n', b'')
 
         response = requests.post('https://service.mimi.fd.ai', headers=headers, data=data)

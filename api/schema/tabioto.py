@@ -24,13 +24,13 @@ class Sound(SoundBase):
 class SoundResponse(BaseModel):
     name: Optional[str]
     url: Optional[str]
+    color: List[float]
 
 
 class TabiotoDetailResponse(BaseModel):
     place: Place
     sound_list: List[SoundResponse]
     place_count: int
-    color: List[float]
 
 
 class TabiotoCreateRequest(BaseModel):
